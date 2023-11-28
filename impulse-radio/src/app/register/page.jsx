@@ -12,7 +12,7 @@ export default function Register (){
         password:""
     })
     return (
-        <div className="flex flex-col gap-10 items-center  bg-gray-100 w-[350px] h-[300px]  mx-auto mt-20">
+        <div className="flex flex-col gap-10 items-center  bg-gray-100 w-[350px] h-[350px]  mx-auto mt-20">
             <div className=' flex justify-center p-5 w-full bg-color4'>
                 <FaRadio className='text-white text-2xl mr-6' />
                 <h1 className="text-white  font-bold text-center   ">
@@ -21,20 +21,20 @@ export default function Register (){
             </div>
          <form  className= "flex flex-col gap-4 max-w-sm " >
          <input
-                className = "border border-gray-500 rounded py-1 px-2 outline-none"
+                className = "border border-gray-200 rounded py-1 px-2 outline-none"
                 type="email"
                 placeholder=' 👤 Name'
                />
             <input
-                className = "border border-gray-500 rounded py-1 px-2 outline-none"
+                className = "border border-gray-200 rounded py-1 px-2 outline-none"
                 type="email"
                 placeholder=' 📩 Email'
                />
 
             <input
-                className = "border border-gray-500 rounded py-1 px-2 outline-none"
+                className = "border border-gray-200 rounded py-1 px-2 outline-none"
                 type="password"
-               
+                placeholder='🔑 Password'
                 
 
              />
