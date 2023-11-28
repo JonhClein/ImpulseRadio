@@ -12,6 +12,7 @@ export const userSliceRegister = createSlice({
   reducers: {
     registerUser: (state, action) => {
       const { name, email, password } = action.payload;
+      console.log("la informacion del recuer de UserSLICE ES  " , name , email, password)
       // Actualizar el estado con los nuevos valores
       state.name = name;
       state.email = email;
