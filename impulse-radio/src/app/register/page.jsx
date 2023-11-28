@@ -5,15 +5,29 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../../Redux/userSlice';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { auth , registerNewUser } from '@/firebase';
 export default function Register() {
   const userRegister = useSelector((state) => state.userRegisterReducer);
   const dispatch = useDispatch();
+
 
   const [user, setUser] = useState({
     name: '',
     email: '',
     password: '',
   });
+
+  const registros = async (e)=>{
+    try{
+        await registerNewUser({
+            name : user.name,
+            email: user.email, 
+            password : user.password
+        })
+    }catch(error){
+        console.log(error)
+    }
+  }
 
   const setDataHandler = (e) => {
     setUser({
@@ -22,6 +36,8 @@ export default function Register() {
     });
   };
 
+  
+
   const onSubmit = async (e) => {
     e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
 
@@ -29,7 +45,8 @@ export default function Register() {
 
     try {
       console.log('El user es en register', user);
-      await dispatch(registerUser(user))
+      await dispatch(registerUser(user));
+      await registros();
       toast("registro bueno");
       
 
