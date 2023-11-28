@@ -6,11 +6,11 @@ const initialState = {
   password: "",
 };
 
-export const userSlice = createSlice({
+export const userSliceRegister = createSlice({
   name: "userRegisterReducer",
   initialState,
   reducers: {
-    addUser: (state, action) => {
+    registerUser: (state, action) => {
       const { name, email, password } = action.payload;
       // Actualizar el estado con los nuevos valores
       state.name = name;
@@ -20,6 +20,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addUser } = userSlice.actions;
+export const { registerUser } = userSliceRegister.actions;
 
-export default userSlice.reducer;
+export default userSliceRegister.reducer;
