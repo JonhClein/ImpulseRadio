@@ -19,9 +19,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-
+export const db = getFirestore(app);
 
 export async function registerNewUser(user){
+  console.log("EL user re dreigste firebas ees " , user)
   try {
     const collectionRef = collection(db , "users");
     const docRef = doc(collectionRef , user.uid)
@@ -29,6 +30,6 @@ export async function registerNewUser(user){
 
 
   }catch(error){
-
+ console.log("error en firebase register" , error)
   }
 }
