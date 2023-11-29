@@ -18,7 +18,7 @@ export default function Home() {
     // Verifica el valor de valueLogin y redirige si es necesario
     if (!valueLogin) {
       
-            router.push('/login'); // Redirige a la página 'home' después de que la notificación se cierre
+            router.push('/login'); 
            
     }
   }, [valueLogin, router]);
