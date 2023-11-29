@@ -5,25 +5,29 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../../Redux/userSlice';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import { v4 as uuidv4} from  "uuid"
 import { auth , registerNewUser } from '@/firebase';
+import {  createUserWithEmailAndPassword } from "firebase/auth";
+
+import { useRouter } from 'next/navigation';
+
 export default function Register() {
   const userRegister = useSelector((state) => state.userRegisterReducer);
   const dispatch = useDispatch();
-
+  const router = useRouter();
 
   const [user, setUser] = useState({
+    uid:uuidv4(),
     name: '',
     email: '',
     password: '',
   });
 
-  const registros = async (e)=>{
+  const registro = async (e)=>{
     try{
-        await registerNewUser({
-            name : user.name,
-            email: user.email, 
-            password : user.password
-        })
+        await registerNewUser(user)
+           
+     
     }catch(error){
         console.log(error)
     }
@@ -46,9 +50,20 @@ export default function Register() {
     try {
       console.log('El user es en register', user);
       await dispatch(registerUser(user));
-      await registros();
-      toast("registro bueno");
-      
+    //  const res = await createUserWithEmailAndPassword(auth, user.email, user.password);
+
+
+
+      toast.promise(
+        Promise.resolve('Registro  Correcto'), // Resuelve la promesa cuando la notificación se cierra
+        {
+          loading: 'Cargando...',
+          success: (resolved) => {
+            router.push('/login'); // Redirige a la página 'home' después de que la notificación se cierre
+            return resolved;
+          },
+        }
+      );
 
     } catch (error) {
       console.error('Error en onSubmit de register', error);

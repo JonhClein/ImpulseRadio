@@ -18,7 +18,7 @@ const firebaseConfig = {
 // Initialize Firebas  e   
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app);
+export const auth = getAuth();
 export const db = getFirestore(app);
 
 export async function registerNewUser(user){
