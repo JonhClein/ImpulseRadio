@@ -22,7 +22,7 @@ export const auth = getAuth();
 export const db = getFirestore(app);
 
 export async function registerNewUser(user){
-  console.log("EL user re dreigste firebas ees " , user)
+  console.log("EL user de registro en firebase register " , user)
   try {
     const collectionRef = collection(db , "users");
     const docRef = doc(collectionRef , user.uid)

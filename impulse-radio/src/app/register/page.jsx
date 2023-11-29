@@ -12,7 +12,7 @@ import {  createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 
 export default function Register() {
-  const userRegister = useSelector((state) => state.userRegisterReducer);
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -50,8 +50,8 @@ export default function Register() {
     try {
       console.log('El user es en register', user);
       await dispatch(registerUser(user));
-    //  const res = await createUserWithEmailAndPassword(auth, user.email, user.password);
-
+     const res = await createUserWithEmailAndPassword(auth, user.email, user.password);
+      await registerNewUser(user);
 
 
       toast.promise(

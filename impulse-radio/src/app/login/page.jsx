@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { FaRadio } from 'react-icons/fa6';
 import { useDispatch } from 'react-redux';
-import { registerUser } from '../../Redux/userSlice';
+
 import { useSelector } from 'react-redux';
+import {loginUser } from '../../Redux/userSlice';
 import toast from 'react-hot-toast';
 import { v4 as uuidv4} from  "uuid"
 import {auth} from "../../firebase"
@@ -32,21 +33,27 @@ export default function Login ( ){
 
     
 
-      const handleLogin = (e) => {
+      const handleLogin = async (e) => {
         e.preventDefault();
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Usuario inició sesión exitosamente
-            const user = userCredential.user;
-            console.log("CORRECTO BIEN LOGIN ")
-          })
-          .catch((error) => {
-            // Manejo de errores
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log("El error es " , errorMessage)
-          });
+     
+        try {
+            await  signInWithEmailAndPassword(auth, email, password);
+           await dispatch(loginUser(true));
+            toast.promise(
+                Promise.resolve('Login  Correcto'), // Resuelve la promesa cuando la notificación se cierra
+                {
+                  loading: 'Cargando...',
+                  success: (resolved) => {
+                    router.push('/'); // Redirige a la página 'home' después de que la notificación se cierre
+                    return resolved;
+                  },
+                }
+              );
+        
+        }catch(error){
+
+        }
+          
       };
 
       const onSubmit = async (e) =>{

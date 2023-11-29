@@ -4,6 +4,7 @@ const initialState = {
   name: "",
   email: "",
   password: "",
+  valueLogin : false,
 };
 
 export const userSliceRegister = createSlice({
@@ -18,9 +19,15 @@ export const userSliceRegister = createSlice({
       state.email = email;
       state.password = password;
     },
+
+    loginUser : (state , action)=>{
+      console.log("El valor del logon es el reducer es " , action.payload)
+      const value = action.payload;
+      state.valueLogin = value;
+    }
   },
 });
 
-export const { registerUser } = userSliceRegister.actions;
+export const { registerUser , loginUser} = userSliceRegister.actions;
 
 export default userSliceRegister.reducer;
