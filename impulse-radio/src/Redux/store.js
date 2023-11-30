@@ -6,3 +6,15 @@ export const store = configureStore({
         userRegister : userRegisterReducer
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+

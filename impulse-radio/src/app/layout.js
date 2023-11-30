@@ -2,6 +2,7 @@
 
 import { Providers } from  "../Redux/provider";
 import toast, {Toaster} from "react-hot-toast";
+
 import "./globals.css"
 export default function RootLayout({children}) {
   return (
