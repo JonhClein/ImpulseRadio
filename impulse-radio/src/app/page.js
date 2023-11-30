@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import {loginUser } from '../Redux/userSlice';
 import Main from "@/components/Main"
-  
+
   
 export default function  Home () {
   const dispatch = useDispatch();
@@ -77,13 +77,23 @@ export default function  Home () {
 
   // Renderiza Main solo si está autenticado
   return (
-    <div>
+    <div 
+    style={{
+      backgroundImage: 'url("/niños.jpg")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      height: '100vh', // Ajusta la altura según sea necesario
+    }}
+    
+    
+    
+    >
       {!isLoading && valueLogin ? (
-        <Main
+        <Main className= ""
           handleSignOut={handleSignOut}
           currentPage={currentPage}
           divsPerPage={6}
-          totalPages={Math.ceil(20 / 6)}
+          totalPages={Math.ceil(17 / 6)}
           handleClickPrev={() => setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage))}
           handleClickNext={() => setCurrentPage((prevPage) => (prevPage < 4 ? prevPage + 1 : prevPage))}
         />
