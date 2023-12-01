@@ -20,6 +20,13 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "fondo": "url('/Img/niños2.jpg')"
+      },
+      keyframes: {
+        brillo: {
+          '0%': { backgroundPosition: '-200px 0' },
+          '100%': { backgroundPosition: 'calc(100% + 200px) 0' },
+        }
       },
     },
   },

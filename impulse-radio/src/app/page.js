@@ -82,7 +82,7 @@ export default function  Home () {
       backgroundImage: 'url("/niños.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      height: '100vh', // Ajusta la altura según sea necesario
+      height: '150vh', // Ajusta la altura según sea necesario
     }}
     
     
