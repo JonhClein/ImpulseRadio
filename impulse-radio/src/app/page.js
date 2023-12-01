@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import {loginUser } from '../Redux/userSlice';
 import Main from "@/components/Main"
-
+import Nav from "@/components/Nav"
   
 export default function  Home () {
   const dispatch = useDispatch();
@@ -75,21 +75,28 @@ export default function  Home () {
     setIsLoading(false); // Marcar la carga inicial como completa
   }, []);
 
+  // background: url("./Img/image10.jpg") no-repeat center center fixed;
+  //background-size: cover;
+
   // Renderiza Main solo si está autenticado
   return (
-    <div 
-    style={{
-      backgroundImage: 'url("/niños.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      height: '150vh', // Ajusta la altura según sea necesario
-    }}
-    
-    
-    
-    >
+    <div >
       {!isLoading && valueLogin ? (
-        <Main className= ""
+         <div 
+         style={{
+          backgroundImage: 'url("./Img/niños2.jpg")',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          height: '100vh',
+          position: 'relative', // Añadir posición relativa
+          overflowY: 'scroll',  // Agregar desplazamiento vertical
+        }}
+            
+            >
+         <Nav/>
+         <Main className= ""
           handleSignOut={handleSignOut}
           currentPage={currentPage}
           divsPerPage={6}
@@ -97,8 +104,9 @@ export default function  Home () {
           handleClickPrev={() => setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage))}
           handleClickNext={() => setCurrentPage((prevPage) => (prevPage < 4 ? prevPage + 1 : prevPage))}
         />
+         </div>
       ) : (   
-         <div className="flex justify-center items-center">
+         <div className=" bg-colorPrincipal flex  justify-center items-center">
             <h1 className="mt-[200px] text-2xl">Autenticando...</h1>
          </div>
          )}

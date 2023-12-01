@@ -1,15 +1,16 @@
 import { stationRadioInfo  }from "@/helpers/stationRadioInfo";
-
+import Nav from "./Nav";
 import Image from "next/image" ; 
 import Link from 'next/link';
 export default function  Main ({ handleSignOut, currentPage, divsPerPage, totalPages, handleClickPrev, handleClickNext }) {
     const currentDivsData = stationRadioInfo.slice((currentPage - 1) * divsPerPage, currentPage * divsPerPage);
-    return (
-        <div className="bg-fondo bg-cover  h-screen  ">
-        <div>Contenido de la página principal</div>
-        <button onClick={handleSignOut}>Log Out</button>
   
-        <div className="flex justify-center items-center "> {/* Contenedor centrado */}
+    return (
+        <div className="  h-screen  ">
+        
+        
+  
+        <div className="flex justify-center  "> {/* Contenedor centrado */}
         <div className="grid grid-cols-3 grid-rows-2 gap-4 p-4">
           {/* Muestra los divs actuales según la página actual */}
           {currentDivsData.map((div) => (
