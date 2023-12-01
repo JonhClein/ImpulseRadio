@@ -107,7 +107,7 @@ export default function  Home () {
         />
          </div>
       ) : (   
-         <div className=" bg-colorPrincipal flex  justify-center items-center">
+         <div className=" bg-colorPrincipal flex h-full justify-center items-center">
             <h1 className="mt-[200px] text-2xl">Autenticando...</h1>
          </div>
          )}

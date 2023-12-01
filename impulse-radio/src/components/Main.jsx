@@ -28,7 +28,7 @@ export default function  Main ({ handleSignOut, currentPage, divsPerPage, totalP
                
                >{div.name}</h3>
                <div className="text-center p-2 bg-sky-600">
-               <Link className=' animate-pulse text-white font-bold text-2xl ' href="/">Listen</Link>
+               <Link className=' animate-pulse text-white font-bold text-2xl ' href={div.link}>Listen</Link>
                </div>
             </div>
           ))}
