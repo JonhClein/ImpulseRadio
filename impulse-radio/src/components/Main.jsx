@@ -6,7 +6,7 @@ export default function  Main ({ handleSignOut, currentPage, divsPerPage, totalP
     const currentDivsData = stationRadioInfo.slice((currentPage - 1) * divsPerPage, currentPage * divsPerPage);
   
     return (
-        <div className="  h-screen  ">
+        <div className="   h-screen  ">
         
         
   
@@ -36,7 +36,7 @@ export default function  Main ({ handleSignOut, currentPage, divsPerPage, totalP
       </div>
 
              {/* Botones para avanzar y retroceder */}
-          <div className="flex justify-center  ">
+          <div className="flex justify-center  mb-20 ">
             <button
               onClick={handleClickPrev}
               disabled={currentPage === 1}
@@ -47,7 +47,7 @@ export default function  Main ({ handleSignOut, currentPage, divsPerPage, totalP
             <button
               onClick={handleClickNext}
               disabled={currentPage === totalPages}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-blue-500 text-white px-4 py-2  rounded"
             >
               Siguiente
             </button>

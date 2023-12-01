@@ -80,9 +80,10 @@ export default function  Home () {
 
   // Renderiza Main solo si está autenticado
   return (
-    <div >
+    <div className="" >
       {!isLoading && valueLogin ? (
          <div 
+         className="py-10 "
          style={{
           backgroundImage: 'url("./Img/niños2.jpg")',
           backgroundRepeat: 'no-repeat',
